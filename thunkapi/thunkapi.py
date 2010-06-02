@@ -12,6 +12,7 @@ class Thunk:
     """
     def __init__(self):
         self.base_url = "http://thunk.us/"
+        self.poke_states = ["good", "bad", "iffy", "unknown"]
 
     def create(self, name=None):
         """ method for creating a thunk
@@ -25,14 +26,20 @@ class Thunk:
         data = self._query(self.base_url, values)
         return data
 
-    def poke(self, uid):
+    def poke(self, uid, state, payload=None):
         """ poke a thunk with the given UID
 
             Parameters:
                 uid -> uid of the thunk to poke
         """
-        pass
+        if state not in self.poke_states:
+            raise PokeStateError(("Invalid poke state %s given" % state))
+        url = self.base_url + uid + "/" + state
+        values = {}
+        if payload is not None:
+            values["payload"] = payload
 
+        return self._query(url, values)
 
     def check(self, uid):
         """ method for checking the status of a given UID
