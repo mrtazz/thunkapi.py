@@ -33,31 +33,30 @@ class Thunk:
         """ method for checking the status of a given UID """
         pass
 
-    def _post_query(self, url, data = {}):
-        """ query method to do HTTP POST
+    def _query(self, url, data = None):
+        """ query method to do HTTP POST/GET
 
             Parameters:
-                url -> the url to POST to
-                data -> header_data as a dict
+                url -> the url to POST/GET
+                data -> header_data as a dict (only for POST)
 
             Returns:
                 Parsed JSON data as dict
                 or
                 None on error
         """
-        values = urllib.urlencode(data)
-        request = urllib2.Request(url, values)
+        if data is not None: # we have POST data if there is data
+            values = urllib.urlencode(data)
+            request = urllib2.Request(url, values)
+        else: # do a GET otherwise
+            request = urllib2.Request(url)
         try:
             response = urllib2.urlopen(request)
-        except IOError:
+        except IOError: # no connection
             return None
         json_data = response.read()
         data = json.loads(json_data)
         return data
-
-    def _get_query(self, url):
-        """ query method to do HTTP GET """
-        pass
 
 if __name__ == '__main__':
     import doctest
