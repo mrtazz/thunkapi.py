@@ -11,7 +11,7 @@ class Thunk:
         thunk.us API
     """
     def __init__(self):
-        self.base_url = "https://api.thunk.us/"
+        self.base_url = "http://thunk.us/"
 
     def create(self, name=None):
         """ method for creating a thunk
