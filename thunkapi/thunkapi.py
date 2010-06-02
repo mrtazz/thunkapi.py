@@ -38,8 +38,13 @@ class Thunk:
         pass
 
     def check(self, uid):
-        """ method for checking the status of a given UID """
-        pass
+        """ method for checking the status of a given UID
+
+            Parameters:
+                uid -> the UID to check for
+        """
+        url = self.base_url + uid
+        return self._query(url)
 
     def _query(self, url, data = None):
         """ query method to do HTTP POST/GET
