@@ -13,9 +13,16 @@ class Thunk:
     def __init__(self):
         self.base_url = "https://api.thunk.us/"
 
-    def create(self):
-        """ method for creating a thunk"""
-        pass
+    def create(self, name=None):
+        """ method for creating a thunk
+
+            Parameters:
+                name -> optional name of the thunk
+        """
+        values = {}
+        if name is not None:
+            values["name"] = name
+        data = self._query(self.base_url, values)
 
     def poke(self, uid):
         """ poke a thunk with the given UID
