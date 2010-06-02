@@ -33,9 +33,6 @@ class Thunk:
         """
         pass
 
-    def destroy(self, uid):
-        """ method to destroy a thunk with the given UID """
-        pass
 
     def check(self, uid):
         """ method for checking the status of a given UID
