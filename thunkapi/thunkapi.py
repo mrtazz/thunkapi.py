@@ -23,6 +23,7 @@ class Thunk:
         if name is not None:
             values["name"] = name
         data = self._query(self.base_url, values)
+        return data
 
     def poke(self, uid):
         """ poke a thunk with the given UID
