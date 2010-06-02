@@ -74,3 +74,13 @@ class Thunk:
 if __name__ == '__main__':
     import doctest
     doctest.doctest()
+
+# Custom Exception Classes
+
+class PokeStateError(Exception):
+    """ exception to raise if wrong poke state was provided
+    """
+    def __init__(self, arg):
+        self.arg = arg
+    def __str__(self):
+        return repr(self.arg)
