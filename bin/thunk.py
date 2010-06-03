@@ -49,7 +49,16 @@ def main():
     else:
         ret = thunkapi.check(args[0].split(","))
 
-    print ret
+    try:
+        thunks = ret["thunks"]
+    except KeyError:
+        thunks = [ret]
+
+    print "Thunks:"
+    for t in thunks:
+        print "==="
+        for k in t.keys():
+            print "%s: %s" % (k, t[k])
 
 if __name__ == '__main__':
   main()
