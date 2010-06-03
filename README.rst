@@ -7,6 +7,16 @@ Introduction
 thunkapi.py is a python library and command line client for
 interacting with the thunk.us_ web service.
 
+Installation
+=============
+Install via pip::
+
+    pip install thunkapi
+
+Or if you must::
+
+    easy_install thunkapi
+
 
 Usage
 ======
