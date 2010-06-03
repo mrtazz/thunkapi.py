@@ -4,7 +4,6 @@
 """ executable to interact with thunk.us using the thunk.py library """
 
 import sys
-sys.path.append('/Users/mrtazz/Projects/thunk.py')
 import thunkapi
 from optparse import OptionParser
 
