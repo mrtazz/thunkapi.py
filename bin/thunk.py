@@ -3,7 +3,6 @@
 
 """ executable to interact with thunk.us using the thunk.py library """
 
-import sys
 import thunkapi
 from optparse import OptionParser
 
@@ -54,10 +53,10 @@ def main():
         thunks = [ret]
 
     print "Thunks:"
-    for t in thunks:
+    for thnk in thunks:
         print "==="
-        for k in t.keys():
-            print "%s: %s" % (k, t[k])
+        for key in thnk.keys():
+            print "%s: %s" % (key, thnk[key])
 
 if __name__ == '__main__':
-  main()
+    main()
