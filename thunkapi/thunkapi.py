@@ -47,7 +47,11 @@ class Thunk:
             Parameters:
                 uid -> the UID to check for
         """
-        url = self.base_url + uid
+        if isinstance(uid, list):
+            extension = ",".join(["%s" % (ids) for ids in uid])
+        else:
+            extension = uid
+        url = self.base_url + extension
         return self._query(url)
 
     def _query(self, url, data = None):
