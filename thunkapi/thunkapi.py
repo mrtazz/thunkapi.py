@@ -79,10 +79,6 @@ class Thunk:
         data = json.loads(json_data)
         return data
 
-if __name__ == '__main__':
-    import doctest
-    doctest.doctest()
-
 # Custom Exception Classes
 
 class PokeStateError(Exception):
