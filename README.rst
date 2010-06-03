@@ -1,10 +1,10 @@
-==========
-thunk.py
-==========
+============
+thunkapi.py
+============
 
 Introduction
 =============
-thunk.py is a python library and command line client for
+thunkapi.py is a python library and command line client for
 interacting with the thunk.us_ web service.
 
 
@@ -12,14 +12,18 @@ Usage
 ======
 thunk.py can be imported into any python module::
 
-    from thunk import Thunk
+    import thunkapi
 
-    t = new Thunk()
-    t.create()
-    t.poke("UID")
-    t.destroy()
+    thunkapi.create()
+    thunkapi.poke(UID, state, payload)
+    thunkapi.check(uid)
 
+There is also a command line client to use::
 
-
+    thunk.py UID
+    thunk.py -x check UID
+    thunk.py -x check "UID1,UID2,UID3"
+    thunk.py -x poke -s state -p payload UID
+    thunk.py -x create
 
 .. _thunk.us: http://thunk.us
